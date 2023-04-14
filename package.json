@@ -1,6 +1,6 @@
 {
   "name": "minify-css-js-s3",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Minify All Css and JS files and Upload on AWS",
   "main": "index.js",
   "repository": {
@@ -39,7 +39,6 @@
     "aws-s3",
     "s3"
   ],
- 
   "bugs": {
     "url": "https://github.com/dishantkapoor/minify-css-js-s3/issues"
   },
