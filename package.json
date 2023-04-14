@@ -1,5 +1,5 @@
 {
-  "name": "minify-css-js-s3",
+  "name": "minify-css-js",
   "version": "1.0.0",
   "description": "Minify All Css and JS files and Upload on AWS",
   "main": "index.js",
