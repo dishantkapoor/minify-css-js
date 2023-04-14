@@ -5,7 +5,7 @@ To install package run
 
 
 
-![Logo](https://raw.githubusercontent.com/dishantkapoor/minify-css-js-s3/main/minify-css-js-s3.png)
+![Logo](https://raw.githubusercontent.com/dishantkapoor/minify-css-js/main/minify-css-js.png)
 
 
 ## Use Cases
