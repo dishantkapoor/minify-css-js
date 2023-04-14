@@ -1,4 +1,3 @@
-
 # Minify JS and CSS and Upload on S3
 
 To install package run
