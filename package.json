@@ -1,8 +1,12 @@
 {
-  "name": "minify-css-js",
+  "name": "minify-css-js-s3",
   "version": "1.0.0",
   "description": "Minify All Css and JS files and Upload on AWS",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dishantkapoor/minify-css-js-s3.git"
+  },
   "scripts": {
     "test": "node test.js"
   },
@@ -13,7 +17,31 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1358.0",
-    "aws-sdk-js-codemod": "^0.14.1",
-    "chalk": "^5.2.0"
-  }
+    "aws-sdk-js-codemod": "^0.14.1"
+  },
+  "keywords": [
+    "minify-css-js-s3",
+    "minify",
+    "minify js",
+    "minify-js",
+    "minify css",
+    "minify-css",
+    "minify s3 upload",
+    "minify-s3-upload",
+    "upload on s3",
+    "upload-on-s3",
+    "s3 minify",
+    "s3-minify",
+    "minify on s3",
+    "minify-on-s3",
+    "aws-s3-minify",
+    "aws-s3-minify",
+    "aws-s3",
+    "s3"
+  ],
+ 
+  "bugs": {
+    "url": "https://github.com/dishantkapoor/minify-css-js-s3/issues"
+  },
+  "homepage": "https://github.com/dishantkapoor/minify-css-js-s3#readme"
 }
