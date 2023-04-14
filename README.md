@@ -18,7 +18,7 @@ To install package run
 To Minify your CSS and JS you need to write the following code
 
 ```javascript
-const Minify=require('minify-css-js-s3')
+const Minify=require('minify-css-js')
 
 new Minify()
 .add_js('/public/js/theme.js')
@@ -46,7 +46,7 @@ To Upload your Minified CSS and JS you need pass your S3 Details
 
 
 ```javascript
-const Minify=require('minify-css-js-s3')
+const Minify=require('minify-css-js')
 
 new Minify()
 .s3({
@@ -80,7 +80,7 @@ Check below complete example.
 
 
 ```javascript
-const Minify=require('minify-css-js-s3')
+const Minify=require('minify-css-js')
 
 new Minify()
 .s3({
