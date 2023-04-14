@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dishantkapoor/minify-css-js-s3.git"
+    "url": "git+https://github.com/dishantkapoor/minify-css-js.git"
   },
   "scripts": {
     "test": "node test.js"
@@ -40,7 +40,7 @@
     "s3"
   ],
   "bugs": {
-    "url": "https://github.com/dishantkapoor/minify-css-js-s3/issues"
+    "url": "https://github.com/dishantkapoor/minify-css-js/issues"
   },
-  "homepage": "https://github.com/dishantkapoor/minify-css-js-s3#readme"
+  "homepage": "https://github.com/dishantkapoor/minify-css-js#readme"
 }
