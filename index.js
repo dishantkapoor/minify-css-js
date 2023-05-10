@@ -68,7 +68,7 @@ Minify.prototype.minify = function () {
                     secretAccessKey: this.aws_details.SECRET_KEY
                 });
     
-                let fileContent = fs.readFileSync(inputFile);
+                let fileContent = fs.readFileSync(outputFile);
                 if(this.path_status){
                     var up_path=outputFile.replace(this.old_path,this.new_path)
                 }else{
@@ -110,7 +110,7 @@ Minify.prototype.minify = function () {
                     secretAccessKey: this.aws_details.SECRET_KEY
                 });
     
-                let fileContent = fs.readFileSync(inputFile);
+                let fileContent = fs.readFileSync(outputFile);
                 if(this.path_status){
                     var up_path=outputFile.replace(this.old_path,this.new_path)
                 }else{
