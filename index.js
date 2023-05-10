@@ -77,7 +77,8 @@ Minify.prototype.minify = function () {
                 let params = {
                     Bucket: this.aws_details.BUCKET,
                     Key: up_path,
-                    Body: fileContent
+                    Body: fileContent,
+                    ContentType: 'text/css'
                 };
     
                 s3.upload(params, function (err, data) {
@@ -119,7 +120,8 @@ Minify.prototype.minify = function () {
                 let params = {
                     Bucket: this.aws_details.BUCKET,
                     Key: up_path,
-                    Body: fileContent
+                    Body: fileContent,
+                    ContentType: 'application/javascript'
                 };
     
                 s3.upload(params, function (err, data) {
