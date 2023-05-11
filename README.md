@@ -22,7 +22,11 @@ const Minify=require('minify-css-js')
 
 new Minify()
 .add_js('/public/js/theme.js')
+.add_js('/public/js/app.js')
+.add_js('/public/js/work.js')
 .add_css('public/css/bootstrap.css')
+.add_css('public/css/slider.css')
+.add_css('public/css/styles.css')
 .minify()
 // Here add_js use for minify JS files and add_css for minify css files
 // .minify() use for execution
