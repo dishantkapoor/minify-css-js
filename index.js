@@ -62,6 +62,11 @@ Minify.prototype.minify = function () {
             inputFile = this.css[p];
             const input = fs.readFileSync(inputFile, 'utf8');
             outputFile = inputFile.replace('.css', '.min.css')
+            console.log('\x1b[36m%s\x1b[0m', "          " + outputFile)
+            // Remove all spaces and new lines
+            const output = input.replace(/\s+/g, '');
+            // Write the output to the output file
+            fs.writeFileSync(outputFile, output, 'utf8');
             if(this.s3_status){
                 const s3 = new AWS.S3({
                     accessKeyId: this.aws_details.ACCESS_KEY,
@@ -90,11 +95,7 @@ Minify.prototype.minify = function () {
                 });
             }
            
-            console.log('\x1b[36m%s\x1b[0m', "          " + outputFile)
-            // Remove all spaces and new lines
-            const output = input.replace(/\s+/g, '');
-            // Write the output to the output file
-            fs.writeFileSync(outputFile, output, 'utf8');
+            
         }
 
     }
@@ -105,6 +106,11 @@ Minify.prototype.minify = function () {
             inputFile = this.js[p];
             const input = fs.readFileSync(inputFile, 'utf8');
             outputFile = inputFile.replace('.js', '.min.js')
+            console.log('\x1b[36m%s\x1b[0m', "          " + outputFile)
+            // Remove all spaces and new lines
+            const output = input.replace(/\s+/g, '');
+            // Write the output to the output file
+            fs.writeFileSync(outputFile, output, 'utf8');
             if(this.s3_status){
                 const s3 = new AWS.S3({
                     accessKeyId: this.aws_details.ACCESS_KEY,
@@ -132,11 +138,7 @@ Minify.prototype.minify = function () {
                     }
                 });
             }
-            console.log('\x1b[36m%s\x1b[0m', "          " + outputFile)
-            // Remove all spaces and new lines
-            const output = input.replace(/\s+/g, '');
-            // Write the output to the output file
-            fs.writeFileSync(outputFile, output, 'utf8');
+            
         }
     }
 
