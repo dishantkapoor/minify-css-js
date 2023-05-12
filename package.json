@@ -1,6 +1,6 @@
 {
   "name": "minify-css-js",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Minify All Css and JS files and Upload on AWS",
   "main": "index.js",
   "repository": {
@@ -17,7 +17,9 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1358.0",
-    "aws-sdk-js-codemod": "^0.14.1"
+    "aws-sdk-js-codemod": "^0.14.1",
+    "clean-css": "^5.3.2",
+    "uglify-js": "^3.17.4"
   },
   "keywords": [
     "minify-css-js-s3",
