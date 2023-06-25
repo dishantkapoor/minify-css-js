@@ -1,6 +1,6 @@
 {
   "name": "minify-css-js",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Minify All Css and JS files and Upload on AWS",
   "main": "index.js",
   "repository": {

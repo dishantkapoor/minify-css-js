@@ -112,6 +112,6 @@ new Minify()
 - [@dishantkapoor](https://www.github.com/dishantkapoor)
 
 ## Buy Me A Coffee
-#### If this package help you in development and you want to support m e. please buy a coffee for me by click below link
+#### If this package has helped you in development and you would like to support me, please consider buying me a coffee by clicking the link below.
 [![Logo](https://raw.githubusercontent.com/dishantkapoor/minify-css-js/main/coffee.png)
 ](https://www.buymeacoffee.com/dishantkapoor)
