@@ -111,3 +111,7 @@ new Minify()
 
 - [@dishantkapoor](https://www.github.com/dishantkapoor)
 
+## Buy Me A Coffee
+
+[![Logo](https://raw.githubusercontent.com/dishantkapoor/minify-css-js/main/coffee.png)
+](https://www.buymeacoffee.com/dishantkapoor)
