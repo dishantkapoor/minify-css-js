@@ -12,6 +12,7 @@ To install package run
  - Minify CSS and JS
  - Upload on S3 Bucket
  - Define Path or Change Location on S3
+ - Define Path for Local Location
 
 
 ## 1. Minify CSS and JS 
@@ -99,7 +100,33 @@ new Minify()
 // It will upload on s3 alse on same location and same folder structure
 ```
 
+## 4. Define Path Local Location Path
+If you are worry about path while uploading on s3 bucket. Here is Solution. you can specify your own path that will replace existing path with your path with the help of `local_path_replace()` function. It accept 2 parameters
 
+```javascript
+local_path_replace('Existing Path for Match','Replace with this Path')
+```
+Suppose the file in your local on this location `public/css/style.css`
+
+and you want to store on different location in your local `assets/css/style.css`
+
+for this you can pass like this
+
+`local_path_replace('public/','assets/')`
+
+Check below complete example.
+
+
+```javascript
+const Minify=require('minify-css-js')
+
+new Minify()
+.local_path_replace('./public','assets')
+.add_js('public/js/theme.js')
+.add_css('public/css/bootstrap.css')
+.minify()
+// It will upload on s3 alse on same location and same folder structure
+```
 
 ## Badges
 

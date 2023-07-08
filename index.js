@@ -2,6 +2,7 @@ const fs = require('fs');
 const AWS = require('aws-sdk');
 const UglifyJS = require('uglify-js');
 const CleanCSS = require('clean-css');
+const path = require('path');
 
 
 
@@ -20,7 +21,11 @@ function Minify() {
      */
     this.old_path = '/';
     this.new_path = '/';
+
+    this.old_local_path = '/';
+    this.new_local_path = '/';
     this.path_status = 0;
+    this.local_path_status = 0;
     this.s3_status = 0;
 
 }
@@ -39,6 +44,13 @@ Minify.prototype.path_replace = function (old_path, new_path) {
     this.path_status = 1;
     this.old_path = old_path;
     this.new_path = new_path;
+    return this;
+};
+
+Minify.prototype.local_path_replace = function (old_local_path, new_local_path) {
+    this.local_path_status = 1;
+    this.old_local_path = old_local_path;
+    this.new_local_path = new_local_path;
     return this;
 };
 
@@ -64,23 +76,47 @@ Minify.prototype.minify = function () {
             inputFile = this.css[p];
             const input = fs.readFileSync(inputFile, 'utf8');
             outputFile = inputFile.replace('.css', '.min.css')
-            console.log('\x1b[36m%s\x1b[0m', "          " + outputFile)
             // Remove all spaces and new lines
             const result = new CleanCSS().minify(input);
             // Write the output to the output file
-            fs.writeFileSync(outputFile, result.styles, 'utf8');
+
+            if (this.local_path_status) {
+                var up_path = outputFile.replace(this.old_local_path, this.new_local_path)
+            } else {
+                var up_path = outputFile
+            }
+
+            console.log('\x1b[36m%s\x1b[0m', "          " + up_path)
+            // Extract the directory path from the file path
+            const directoryPath = path.dirname(up_path);
+
+            // Create the directory if it doesn't exist
+            if (!fs.existsSync(directoryPath)) {
+                fs.mkdirSync(directoryPath, { recursive: true });
+            }
+
+           
+
+            fs.writeFileSync(up_path, result.styles, 'utf8');
             if (this.s3_status) {
                 const s3 = new AWS.S3({
                     accessKeyId: this.aws_details.ACCESS_KEY,
                     secretAccessKey: this.aws_details.SECRET_KEY
                 });
+                if (this.local_path_status) {
+                    var up_path_out = outputFile.replace(this.old_local_path, this.new_local_path)
+                } else {
+                    var up_path_out = outputFile
+                }
 
-                let fileContent = fs.readFileSync(outputFile);
+                let fileContent = fs.readFileSync(up_path_out);
                 if (this.path_status) {
                     var up_path = outputFile.replace(this.old_path, this.new_path)
                 } else {
                     var up_path = outputFile
                 }
+
+                
                 let params = {
                     Bucket: this.aws_details.BUCKET,
                     Key: up_path,
@@ -108,23 +144,46 @@ Minify.prototype.minify = function () {
             inputFile = this.js[p];
             const input = fs.readFileSync(inputFile, 'utf8');
             outputFile = inputFile.replace('.js', '.min.js')
-            console.log('\x1b[36m%s\x1b[0m', "          " + outputFile)
+            
             // Remove all spaces and new lines
             const result = UglifyJS.minify(input);
             // Write the output to the output file
-            fs.writeFileSync(outputFile, result.code, 'utf8');
+            if (this.local_path_status) {
+                var up_path = outputFile.replace(this.old_local_path, this.new_local_path)
+            } else {
+                var up_path = outputFile
+            }
+
+            console.log('\x1b[36m%s\x1b[0m', "          " + up_path)
+            // Extract the directory path from the file path
+            const directoryPath = path.dirname(up_path);
+
+            // Create the directory if it doesn't exist
+            if (!fs.existsSync(directoryPath)) {
+                fs.mkdirSync(directoryPath, { recursive: true });
+            }
+            fs.writeFileSync(up_path, result.code, 'utf8');
             if (this.s3_status) {
                 const s3 = new AWS.S3({
                     accessKeyId: this.aws_details.ACCESS_KEY,
                     secretAccessKey: this.aws_details.SECRET_KEY
                 });
 
-                let fileContent = fs.readFileSync(outputFile);
+
                 if (this.path_status) {
                     var up_path = outputFile.replace(this.old_path, this.new_path)
                 } else {
                     var up_path = outputFile
                 }
+
+                if (this.local_path_status) {
+                    var up_path_out = outputFile.replace(this.old_local_path, this.new_local_path)
+                } else {
+                    var up_path_out = outputFile
+                }
+
+                let fileContent = fs.readFileSync(up_path_out);
+                // let fileContent = fs.readFileSync(up_path);
                 let params = {
                     Bucket: this.aws_details.BUCKET,
                     Key: up_path,
